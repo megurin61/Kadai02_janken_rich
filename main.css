@@ -1,0 +1,54 @@
+#title {
+    text-decoration: underline;
+}
+
+.title {
+    font-size: 30px;
+    background-color: aquamarine;
+
+}
+
+.symbol {
+    font-size: 3em;
+}
+
+#ResultMessage {
+    font-size: 2em;
+}
+
+.box {
+    vertical-align: middle;
+}
+
+.main {
+    background-color: aquamarine;
+    font-weight: bold;
+    font-size: 20px;
+    width: 60%;
+}
+
+.Player {
+    background-color: cyan;
+    font-weight: bold;
+    font-size: 20px;
+    margin: auto;
+    width: 600px;
+    height: 180px;
+}
+
+.Computer {
+    background-color: lemonchiffon;
+    font-weight: bold;
+    font-size: 20px;
+    margin: auto;
+    width: 600px;
+    height: 180px;
+}
+
+.result {
+    background-color: rgb(229, 151, 196);
+    font-size: 20px;
+    font-weight: bold;
+    margin: auto;
+    width: 700px;
+}
