@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>じゃんけんアプリ</title>
+
+  <script src="./app.js"></script>
+    <link rel="stylesheet" href="./main.css">
+
+</head>
+<body>
+    <h1 class="title"></h1>
+  <h1 style="text-align:center">じゃんけんアプリ</h1>
+<div style="text-align:center; height:6rem;">
+
+    <div> <div class="main"></div></div>
+        <p><div class="hands"></div>✊🏻✌🏻🖐🏻 から選んでね</p>
+
+        <button onclick="janken(1);" class="symbol">✊🏻</button>
+        <button onclick="janken(2);" class="symbol">✌🏻</button>
+        <button onclick="janken(3);" class="symbol">🖐🏻</button>
+    
+
+    
+    <div class="Player">
+        <div style="text-align:center;"></div>
+        <p>プレーヤーが選んだもの</p>
+        <p id="PlayersChoice" class="symbol"></p>
+    </div>
+
+    <div class="Computer">
+        <p>コンピュータが選んだもの</p>
+        <p id="PCsChoice" class="symbol"></p>
+    </div>
+
+    <div class="result">
+        <p>結果↓</p>
+        <p id="ResultMessage"></p>
+    </div>
+
+</div>
+
+    <script>
+function janken(choice) {
+    let resultElement = document.getElementById("ResultMessage");
+    let PlayersChoiceElement = document.getElementById("PlayersChoice");
+
+    PlayersChoiceElement.innerHTML = Num2Synbol(choice);
+
+    let PCsChoiceElemennt = document.getElementById("PCsChoice");
+    let PCsChoiceNumber = Math.floor(Math.random() * 3) + 1;
+
+    PCsChoiceElemennt.innerHTML = Num2Synbol(PCsChoiceNumber);
+
+    resultElement.innerHTML = Judgement(choice, PCsChoiceNumber);
+}
+
+function Num2Synbol(choice)
+{
+    let symbol = "";
+
+    switch (choice) {
+        case 1:
+            symbol = "✊🏻";
+            break;
+
+        case 2:
+            symbol = "✌🏻";
+            break;
+
+        default:
+            symbol = "🖐🏻";
+            break;
+    }
+
+    return symbol;
+}
+
+function Judgement(PlayersChoice, PCsChoice)
+{
+    let resultMsg = "";
+    let constPlayerWin = "プレイヤーの勝ち";
+    let constPCWin = "コンピューターの勝ち";
+    let constDraw = "あいこ";
+
+    if (PlayersChoice == PCsChoice) {
+        resultMsg = constDraw;
+    }else{
+        if(PlayersChoice == 1){ // Gu
+            if (PCsChoice == 2){ // Choki
+                resultMsg = constPlayerWin;
+            }else {
+                resultMsg = constPCWin;
+            }
+        }else{
+            if(PlayersChoice == 2) { // Choki
+                if (PCsChoice == 1) { // Gu
+                    resultMsg = constPCWin;
+                }else { // Pa
+                    resultMsg = constPlayerWin
+                }
+            }else{//Pa
+                if(PCsChoice == 1) {//Gu
+                    resultMsg = constPlayerWin;
+                }else{
+                    resultMsg = constPCWin;
+                }
+            }
+        }
+    }
+    return resultMsg;
+
+}
+    </script>
+  
+</body>
+</html>
